@@ -1,0 +1,33 @@
+.button {
+  border: none;
+  background-color: #fff;
+  padding: 16px 35px;
+  line-height: 26px;
+  font-size: 14px;
+  color: #000;
+  // link
+  text-decoration: none;
+
+  &:hover {
+    cursor: pointer;
+    background-color: #ffffffcf;
+  }
+
+  &:active {
+    background-color: #fff;
+  }
+}
+
+.button--dark {
+  color: #fff;
+  background-color: #000;
+
+  &:hover {
+    cursor: pointer;
+    background-color: #000000cf;
+  }
+
+  &:active {
+    background-color: #000;
+  }
+}

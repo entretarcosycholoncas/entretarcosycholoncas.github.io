@@ -1,0 +1,53 @@
+.container {
+  padding: {
+    top: 100px;
+    bottom: 60px;
+    left: 20px;
+    right: 20px;
+  };
+  display: grid;
+  grid-row-gap: 30px;
+
+  .logo-link {
+    text-align: center;
+
+    &__img {
+      max-width: 350px;
+    }
+  }
+
+  .label {
+    margin-bottom: 10px;
+    font-size: 16px;
+    line-height: 28px;
+    text-align: center;
+  }
+
+  .links {
+    margin-top: 10px;
+    margin-bottom: 40px;
+    text-align: center;
+
+    .link {
+      margin-bottom: 15px;
+      opacity: 0.6;
+      color: #43464d;
+      font-size: 14px;
+      transition: color 200ms ease, opacity 200ms ease;
+
+      &__url {
+        text-decoration: none;
+        color: #43464d;
+
+        &:hover {
+          color: #000;
+        }
+      }
+
+      &:hover {
+        opacity: 1;
+        color: #000;
+      }
+    }
+  }
+}
