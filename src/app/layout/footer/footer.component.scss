@@ -34,20 +34,18 @@
       color: #43464d;
       font-size: 14px;
       transition: color 200ms ease, opacity 200ms ease;
-
-      &__url {
-        text-decoration: none;
-        color: #43464d;
-
-        &:hover {
-          color: #000;
-        }
-      }
+      text-decoration: none;
 
       &:hover {
         opacity: 1;
         color: #000;
+        text-decoration: underline;
       }
+    }
+
+    .link--active {
+      opacity: 1;
+      color: #000;
     }
   }
 }

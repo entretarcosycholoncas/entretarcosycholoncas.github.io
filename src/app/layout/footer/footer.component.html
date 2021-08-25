@@ -1,7 +1,7 @@
 <div class="container">
   <div class="logo-link">
     <a routerLink="/inicio">
-      <img class="logo-link__img" src="assets/img/logo.svg" alt="logo">
+      <img class="logo-link__img" src="assets/img/logo.jpg" alt="logo">
     </a>
   </div>
   <ng-container *ngFor="let section of sections">
@@ -9,18 +9,19 @@
       {{ section.label }}
     </div>
     <div class="links">
-      <div class="link" *ngFor="let link of section.links">
-        <fa-icon class="link__icon" *ngIf="link.prefix" [icon]="link.prefix"></fa-icon>
+      <div *ngFor="let link of section.links">
         <a
           *ngIf="link.url else aPath"
-          class="link__url"
+          class="link"
           [href]="link.url"
           target="_blank">
+          <fa-icon *ngIf="link.prefix" [icon]="link.prefix"></fa-icon>
           {{ link.text }}
         </a>
         <ng-template #aPath>
           <a
-            class="link__url"
+            class="link"
+            routerLinkActive="link--active"
             [routerLink]="link.path">
             {{ link.text }}
           </a>

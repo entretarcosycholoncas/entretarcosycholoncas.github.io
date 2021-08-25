@@ -1,4 +1,6 @@
 .navbar {
+  position: relative;
+  z-index: 1000;
   padding: 0;
   max-width: 1200px;
   margin: auto;
@@ -9,6 +11,18 @@
   }
 
 }
+
+.navbar__space {
+  height: 104px;
+}
+
+.navbar__menu-open {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
 // mobile styes
 
 .logo-sm-link {
@@ -18,6 +32,7 @@
 }
 
 .menu-btn {
+  overflow-x: hidden;
   position: absolute;
   right: 20px;
   display: flex;
@@ -72,9 +87,6 @@
 }
 
 .navbar__items {
-  position: sticky;
-  overflow-x: hidden;
-  z-index: 1000;
   display: flex;
   justify-content: space-between;
   padding: 20px;
@@ -88,28 +100,37 @@
 
   &__item {
     text-align: center;
-    padding-bottom: 16px;
+
+    .link {
+      display: block;
+
+      &:hover {
+        background-color: #f7f7f7;
+      }
+    }
   }
 }
 
 .navbar-overlay {
-  position: absolute;
-  z-index: 900;
-  left: 0;
+  position: fixed;
+  overflow: hidden;
+  top: 104px;
+  Left: 0;
   right: 0;
+  width: 100%;
   height: 0;
-  transition: background-color 200ms ease;
+  transition: background-color 200ms, height  200ms;
 }
 
 .navbar-overlay--open {
-  height: 100%;
-  background-color: rgba(255, 255, 255, .2);
+  height: 100vh;
+  background-color: rgba(255, 255, 0, .2);
 }
 
 .dropdown-menu {
   background: #fff;
   transform: translateY(-100%);
-  transition: transform 500ms ease;
+  transition: transform 400ms ease;
 }
 
 .dropdown-menu--open {
@@ -153,9 +174,11 @@
 }
 
 .link {
+  padding: 16px 30px;
   color: #43464d;
   opacity: 0.6;
-  transition: color 200ms ease, opacity 200ms ease;
+  transition: color 200ms, opacity 200ms, background-color;
+
   &:link {
     text-decoration: none;
   }
