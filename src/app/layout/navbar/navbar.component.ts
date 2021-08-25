@@ -19,7 +19,7 @@ export class NavbarComponent implements OnInit {
     { text: 'INICIO', path: '/inicio' },
     { text: 'PRODUCTOS', path: '/productos' },
     { text: 'QUIENES SOMOS', path: '/quienes-somos' },
-    { text: 'CONTACTÁNOS', path: '/contactanos' },
+    { text: 'CONTÁCTANOS', path: '/contactanos' },
   ]
 
   constructor(

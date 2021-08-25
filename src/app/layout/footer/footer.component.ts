@@ -26,7 +26,7 @@ export class FooterComponent implements OnInit {
         { text: 'Inicio', path: '/inicio' },
         { text: 'Productos', path: '/productos' },
         { text: 'Quienes somos', path: '/quienes-somos' },
-        { text: 'Contactanos', path: '/contactanos' },
+        { text: 'Contáctanos', path: '/contactanos' },
       ]
     },
     {
