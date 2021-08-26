@@ -1,58 +1,33 @@
-<div class="navbar__space" *ngIf="menuOpen"></div>
-<div *ngIf="!mediaMatches" class="navbar" [ngClass]="{'navbar__menu-open': menuOpen}">
-  <div class="navbar__items">
-    <a class="logo-sm-link" routerLink="/inicio" (click)="menuOpen = false">
-      <img class="logo-sm-link__img" src="assets/img/logo-sm.jpg">
-    </a>
-    <div
-      class="navbar__btn menu-btn"
-      [ngClass]="{'menu-btn--open': menuOpen}"
-      (click)="menuOpen = !menuOpen">
-      <div class="menu-btn__burger"></div>
-    </div>
-  </div>
-
-  <div
-    [ngClass]="{'navbar-overlay--open': menuOpen}"
-    class="navbar-overlay">
-    <ul
-      class="list dropdown-menu"
-      [ngClass]="{'dropdown-menu--open': menuOpen}">
-      <li class="list__item" *ngFor="let listItem of listItems">
-        <a
-          [routerLink]="listItem.path"
-          routerLinkActive="link--active"
-          (click)="menuOpen = false"
-          class="link">
-          {{ listItem.text }}
-        </a>
-      </li>
-    </ul>
-    <div
-      (click)="menuOpen = false"
-      [ngClass]="{'fill--open': menuOpen}"
-      class="fill">
-    </div>
-  </div>
-</div>
-
-<div *ngIf="mediaMatches" class="navbar">
-  <div class="logo-link">
-    <a routerLink="/inicio">
-      <img class="logo-link__img" src="assets/img/logo.jpg">
-    </a>
-  </div>
-  <ul
-    class="inline-list "
-    [ngClass]="{'dropdown-menu--open': menuOpen}">
-    <li class="inline-list__item" *ngFor="let listItem of listItems">
-      <a
-        [routerLink]="listItem.path"
-        routerLinkActive="link--active"
-        (click)="menuOpen = false"
-        class="link">
-        {{ listItem.text }}
+<div class="navbar">
+  <div class="container">
+    <section class="wrapper">
+      <a class="logo" routerLink="/inicio" (click)="menuOpen = false">
+        <img class="logo__img" [src]="mediaMatches ? 'assets/img/logo.jpg' : 'assets/img/logo-sm.jpg'">
       </a>
-    </li>
-  </ul>
+      <div
+        *ngIf="!mediaMatches"
+        class="menu-btn"
+        [ngClass]="{'menu-btn--open': menuOpen}"
+        (click)="menuOpen = !menuOpen">
+        <div class="menu-btn__burger"></div>
+      </div>
+      <div
+        #menu
+        [ngClass]="{'menu--open': menuOpen}"
+        [style.maxHeight.px]="menuOpen ? menu.scrollHeight : mediaMatches ? menu.scrollHeight : 0"
+        class="menu">
+        <ul class="menu__inner">
+          <li class="menu__item" *ngFor="let listItem of listItems">
+            <a
+              [routerLink]="listItem.path"
+              routerLinkActive="menu__link--active"
+              (click)="menuOpen = false"
+              class="menu__link">
+              {{ listItem.text }}
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </div>
 </div>
