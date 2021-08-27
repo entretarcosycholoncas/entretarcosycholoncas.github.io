@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
 import { faFacebookSquare, faWhatsapp, IconDefinition } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { filter } from 'rxjs/operators';
 
 type Link = {
   text: string,
@@ -53,12 +55,25 @@ export class FooterComponent implements OnInit {
           prefix: faEnvelope
         }
       ]
+    },
+    {
+      label: 'NUESTRAS POLÍTICAS',
+      links: [
+        { text: 'Políticas de privacidad', path: '/politicas-privacidad' }
+      ]
     }
   ]
 
-  constructor() { }
+  constructor(
+    private router: Router,
+  ) { }
 
   ngOnInit(): void {
+    this.router.events
+    .pipe(filter(event => event instanceof NavigationEnd))
+    .subscribe(() => {
+      window.scrollTo(0,0);
+    })
   }
 
 }

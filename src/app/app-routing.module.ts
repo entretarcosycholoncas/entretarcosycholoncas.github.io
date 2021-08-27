@@ -22,6 +22,11 @@ const routes: Routes = [
     loadChildren: () => import('@components/contactanos/contactanos.module')
       .then(m => m.ContactanasModule)
   },
+  {
+    path: 'politicas-privacidad',
+    loadChildren: () => import('@components/politicas-privacidad/politicas-privacidad.module')
+      .then(m => m.PoliticasPrivacidadModule)
+  },
   { path: '**', redirectTo: 'inicio', pathMatch: 'full' }
 ];
 
