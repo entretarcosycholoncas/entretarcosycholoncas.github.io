@@ -1,0 +1,19 @@
+<div class="container animate__animated animate__fadeIn">
+  <div class="product" *ngIf="product$ | async as product">
+    <img class="product__img" [src]="product.image_url" [alt]="product.name">
+    <div class="product-details-wrap">
+      <p class="product__title">
+        {{ product.name | uppercase }}
+      </p>
+      <p class="product__price">
+        {{ product.price | uppercase }}
+      </p>
+      <p class="product__description">
+        {{ product.description }}
+      </p>
+      <a [href]="'https://www.facebook.com/commerce/products/'+productId" target="_blank" class="button button--dark">
+        Ver en Facebook
+      </a>
+    </div>
+  </div>
+</div>

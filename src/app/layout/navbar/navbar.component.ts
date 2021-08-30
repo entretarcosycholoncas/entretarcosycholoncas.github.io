@@ -28,7 +28,7 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
     this.mediaService.match('(min-width: 600px)')
-    .subscribe(resp => this.mediaMatches = resp);
+    .subscribe(matches => this.mediaMatches = matches);
   }
 
 }

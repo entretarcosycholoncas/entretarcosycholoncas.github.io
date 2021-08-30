@@ -14,8 +14,7 @@
       <div
         #menu
         [ngClass]="{'menu--open': menuOpen}"
-        *ngIf="!mediaMatches"
-        [style.maxHeight.px]="menuOpen ? menu.scrollHeight : 0"
+        [style.maxHeight]="mediaMatches ? '100%' : menuOpen ? menu.scrollHeight + 'px' : 0"
         class="menu">
         <ul class="menu__inner">
           <li class="menu__item" *ngFor="let listItem of listItems">

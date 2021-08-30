@@ -1,3 +1,41 @@
 <div class="container animate__animated animate__fadeIn">
-  Sit vitae nisi at at cumque? Corrupti quo nemo fuga incidunt quia Velit explicabo quisquam inventore aut ex voluptas? Commodi atque neque dicta omnis aspernatur Ullam deleniti magni cupiditate porro.
+  <div class="header">
+    <p class="title">Nuestros Productos</p>
+    <div class="categories">
+      <div
+        class="category"
+        (click)="selectedSet = undefined; selectProductSet(undefined)"
+        [ngClass]="{'category--active': selectedSet === undefined}">
+        TODOS LOS PRODUCTOS
+      </div>
+      <div
+        (click)="selectedSet = productSet; selectProductSet(productSet)"
+        [ngClass]="{'category--active': selectedSet ? productSet.id === selectedSet.id : false}"
+        *ngFor="let productSet of productSets$ | async"
+        class="category">
+        {{ productSet.name }}
+      </div>
+    </div>
+  </div>
+
+  <div class="products">
+    <div
+      *ngFor="let product of products$ | async"
+      class="product-wrapper">
+      <div
+        [style.backgroundImage]="'url('+product.image_url+')'"
+        class="product">
+        <a [routerLink]='[product.id]' class="product__url">
+          <div class="product__description">
+            <div class="product__description-name">
+              {{ product.name | uppercase}}
+            </div>
+            <div class="product__description-price">
+              {{ product.price }}
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
 </div>
