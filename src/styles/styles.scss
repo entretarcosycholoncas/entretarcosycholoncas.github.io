@@ -1,5 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
-@import './components/_buttons.scss';
+@import './components/buttons';
+@import './components/intro_header';
+@import './components/divider';
+@import './components/heading';
+@import './components/paragraph';
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Montserrat, sans-serif; }

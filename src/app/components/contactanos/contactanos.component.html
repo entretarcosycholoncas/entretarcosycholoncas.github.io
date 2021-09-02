@@ -1,3 +1,16 @@
 <div class="container animate_animated animate_fadeIn">
-  Adipisicing fuga itaque quod magnam sed? Placeat laudantium illo reiciendis ipsam tempora, corporis asperiores veniam? Amet impedit numquam itaque expedita tempore Labore aliquid in placeat autem illo. Officiis doloribus quae
+  <div class="heading">
+    Póngase en contacto con nosotros
+  </div>
+  <div class="info">
+    <div *ngFor="let contact of contacts" class="contact">
+      <div class="contact__label">
+        {{ contact.label }}
+      </div>
+      <a [href]="contact.url" target="_blank" class="contact__value">
+        <fa-icon *ngIf="contact.prefix" [icon]="contact.prefix"></fa-icon>
+        {{ contact.value }}
+      </a>
+    </div>
+  </div>
 </div>

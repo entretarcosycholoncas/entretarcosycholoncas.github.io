@@ -1,3 +1,32 @@
 .container {
   min-height: 100%;
+  padding: 20px;
+}
+
+.heading {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.contact {
+  text-align: center;
+  margin-bottom: 20px;
+
+  &__label {
+    margin-bottom: 10px;
+    opacity: 1;
+    font-size: 20px;
+    line-height: 34px;
+  }
+
+  &__value {
+    text-decoration: none;
+    color: #000;
+    opacity: 0.6;
+    transition: opacity 200ms;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
 }
