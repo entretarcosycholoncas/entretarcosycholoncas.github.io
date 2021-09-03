@@ -1,41 +1,39 @@
 <div class="container animate__animated animate__fadeIn">
   <div class="header">
     <p class="title">Nuestros Productos</p>
-    <div class="categories">
-      <div
-        class="category"
-        (click)="selectedSet = undefined; selectProductSet(undefined)"
-        [ngClass]="{'category--active': selectedSet === undefined}">
-        TODOS LOS PRODUCTOS
-      </div>
-      <div
-        (click)="selectedSet = productSet; selectProductSet(productSet)"
-        [ngClass]="{'category--active': selectedSet ? productSet.id === selectedSet.id : false}"
-        *ngFor="let productSet of productSets$ | async"
-        class="category">
-        {{ productSet.name }}
-      </div>
-    </div>
+  </div>
+
+  <div class="button-wrap">
+    <a
+      class="button button--dark"
+      href="https://www.facebook.com/Entre-tarcos-y-choloncas-en-mi-chura-Tarija-113498483768763/shop"
+      target="_blank">
+      Visitar tienda en Facebook
+    </a>
   </div>
 
   <div class="products">
-    <div
-      *ngFor="let product of products$ | async"
-      class="product-wrapper">
-      <div
-        [style.backgroundImage]="'url('+product.image_url+')'"
-        class="product">
-        <a [routerLink]='[product.id]' class="product__url">
-          <div class="product__description">
-            <div class="product__description-name">
-              {{ product.name | uppercase}}
-            </div>
-            <div class="product__description-price">
-              {{ product.price }}
-            </div>
-          </div>
+    <div class="product" *ngFor="let product of products; let i = index">
+      <img class="product__img" [src]="'assets/img/productos/'+product.fileName" [alt]="product.label">
+      <span class="product__label" (click)="selectedProduc = product">
+        Ampliar
+      </span>
+    </div>
+  </div>
+
+  <div class="lightbox" [ngClass]="{'lightbox--active': product.fileName === selectedProduc?.fileName}" *ngFor="let product of products; let i = index">
+    <div class="lightbox__content">
+      <img class="lightbox__img" [src]="'assets/img/productos/'+product.fileName" [alt]="product.label">
+      <div class="lightbox__title">
+        {{ product.label | titlecase }}
+        <a
+          class="ver-mas"
+          href="https://www.facebook.com/Entre-tarcos-y-choloncas-en-mi-chura-Tarija-113498483768763/shop"
+          target="_blank">
+          Ver más
         </a>
       </div>
+      <span class="lightbox__close" (click)="selectedProduc = undefined"></span>
     </div>
   </div>
 </div>
