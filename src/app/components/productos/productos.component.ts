@@ -11,10 +11,7 @@ export class ProductosComponent implements OnInit {
 
   selectedProduc: ProductImg | undefined;
 
-  constructor(
-  ) {
-    console.log(ProductsImgData);
-  }
+  constructor() { }
 
   ngOnInit(): void {
   }

@@ -14,16 +14,29 @@
 
   <div class="products">
     <div class="product" *ngFor="let product of products; let i = index">
-      <img class="product__img" [src]="'assets/img/productos/'+product.fileName" [alt]="product.label">
+      <img
+        [ngClass]="['lazyload']"
+        [attr.data-src]="'assets/img/productos/'+product.fileName"
+        src="assets/img/no-image.png"
+        class="product__img"
+        [alt]="product.label">
       <span class="product__label" (click)="selectedProduc = product">
         Ampliar
       </span>
     </div>
   </div>
 
-  <div class="lightbox" [ngClass]="{'lightbox--active': product.fileName === selectedProduc?.fileName}" *ngFor="let product of products; let i = index">
+  <div
+    class="lightbox"
+    [ngClass]="{'lightbox--active': product.fileName === selectedProduc?.fileName}"
+    *ngFor="let product of products; let i = index">
     <div class="lightbox__content">
-      <img class="lightbox__img" [src]="'assets/img/productos/'+product.fileName" [alt]="product.label">
+      <img
+        [ngClass]="{'lazyload': selectedProduc?.fileName === product.fileName}"
+        [attr.data-src]="'assets/img/productos/'+product.fileName"
+        src="assets/img/no-image.png"
+        class="lightbox__img"
+        [alt]="product.label">
       <div class="lightbox__title">
         {{ product.label | titlecase }}
         <a
