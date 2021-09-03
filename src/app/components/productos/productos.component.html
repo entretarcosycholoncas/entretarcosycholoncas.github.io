@@ -28,11 +28,10 @@
 
   <div
     class="lightbox"
-    [ngClass]="{'lightbox--active': product.fileName === selectedProduc?.fileName}"
-    *ngFor="let product of products; let i = index">
-    <div class="lightbox__content">
+    [ngClass]="{'lightbox--active': selectedProduc}" >
+    <div class="lightbox__content" *ngIf="selectedProduc as product">
       <img
-        [ngClass]="{'lazyload': selectedProduc?.fileName === product.fileName}"
+        [ngClass]="['lazyload']"
         [attr.data-src]="'assets/img/productos/'+product.fileName"
         src="assets/img/no-image.png"
         class="lightbox__img"
